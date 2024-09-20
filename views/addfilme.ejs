@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Filme</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="bg-color-primary">
+        <h2 class="bg-primary text-white text-center py-5">Cadastrar Filme</h2>
+    </div>
+    <div class="container mt-5 py-2 bg-color-primary">
+        <form action="/add-filme" method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="titulo" class="form-label">Título:</label>
+                <input type="text" name="titulo" id="titulo" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="diretor" class="form-label">Diretor:</label>
+                <input type="text" name="diretor" id="diretor" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="genero" class="form-label">Gênero:</label>
+                <input type="text" name="genero" id="genero" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="descricao" class="form-label">Descrição:</label>
+                <textarea name="descricao" id="descricao" class="form-control"></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="data_lanc" class="form-label">Data de Lançamento:</label>
+                <input type="date" name="data_lanc" id="data_lanc" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="imagem" class="form-label">Imagem do Filme:</label>
+                <input type="file" name="imagem" id="imagem" class="form-control" accept="image/*">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Cadastrar Filme</button>
+        </form>
+        <br/>
+        <p><a href="/dashboard" class="btn btn-secondary">Voltar</a></p>
+    </div>
+
+    <footer class="bg-color-primary py-5">
+    </footer>
+</body>
+</html>

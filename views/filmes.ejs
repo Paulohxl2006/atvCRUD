@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filmes Cadastrados</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="bg-color-primary">
+        <h2 class="bg-primary text-white text-center py-5">Filmes Cadastrados</h2>
+    </div>
+    <div class="container py-2">
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+                <form class="d-flex" method="post"> 
+                    <input class="form-control me-2" type="search" placeholder="Digite um nome" aria-label="Search" id="pesquisar" name="pesquisar"> 
+                    <button class="btn btn-outline-success" type="submit">Pesquisar</button>
+                </form>
+            </div>
+        </nav>
+    </div>
+    
+    <div class="container mt-5 py-2 bg-color-primary">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Gênero</th>
+                    <th>Descrição</th>
+                    <th>Data de Lançamento</th>
+                    <th>Imagem</th>
+                    <th>AÇÕES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% filmes.forEach(filme => { %>
+                    <tr>
+                        <td><%= filme.id_filme %></td>
+                        <td><%= filme.titulo %></td>
+                        <td><%= filme.diretor %></td>
+                        <td><%= filme.genero %></td>
+                        <td><%= filme.descricao %></td>
+                        <td><%= filme.data_lanc %></td>
+                        <td>
+                            <% if (filme.imagem) { %>
+                                <img src="/uploads/<%= filme.imagem %>" width="200" height="300" alt="Imagem do filme">
+                            <% } else { %>
+                                Sem imagem
+                            <% } %>
+                        </td>
+                        <td>
+                            <div class="container mt-5 text-center">
+                                <div class="d-flex flex-column">
+                                    <button class="btn btn-warning mb-2">Editar</button>
+                                    <button class="btn btn-danger">Excluir</button>
+                                </div>
+                            </div>
+                                                </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+        <br/>
+        <a href="/dashboard" class="btn btn-secondary">Voltar</a>
+    </div>
+
+    <footer class="bg-color-primary py-5">
+    </footer>
+</body>
+</html>

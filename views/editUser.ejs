@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Usuário</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="bg-color-primary">
+        <h2 class="bg-primary text-white text-center py-5">Editar Usuário</h2>
+    </div>
+    <div class="container mt-5 py-2 bg-color-primary">
+        <form action="/edit/<%= user.id_usuario %>" method="POST" id="editar" name="editar">
+            <div class="mb-3">
+                <label for="nome" class="form-label">Nome:</label>
+                <input type="text" name="nome" id="nome" class="form-control" value="<%= user.nome %>" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">E-mail:</label>
+                <input type="email" name="email" id="email" class="form-control" value="<%= user.email %>" required>
+            </div>
+            <div class="mb-3">
+                <label for="senha" class="form-label">Nova Senha:</label>
+                <input type="password" name="senha" id="senha" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="confSenha" class="form-label">Confirmar Senha:</label>
+                <input type="password" name="confSenha" id="confSenha" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="genero_fav" class="form-label">Gênero Favorito:</label>
+                <select name="genero_fav" id="genero_fav" class="form-select" required>
+                    <option value=""> -- Selecione --</option>
+                    <option value="fantasia" <%= user.genero_fav === 'fantasia' ? 'selected' : '' %>>Fantasia</option>
+                    <option value="ficcao-cientifica" <%= user.genero_fav === 'ficcao-cientifica' ? 'selected' : '' %>>Ficção Científica</option>
+                    <option value="romance" <%= user.genero_fav === 'romance' ? 'selected' : '' %>>Romance</option>
+                    <option value="aventura" <%= user.genero_fav === 'aventura' ? 'selected' : '' %>>Aventura</option>
+                    <option value="mistério" <%= user.genero_fav === 'mistério' ? 'selected' : '' %>>Mistério</option>
+                    <option value="terror" <%= user.genero_fav === 'terror' ? 'selected' : '' %>>Terror</option>
+                    <option value="biografia" <%= user.genero_fav === 'biografia' ? 'selected' : '' %>>Biografia</option>
+                    <option value="autoajuda" <%= user.genero_fav === 'autoajuda' ? 'selected' : '' %>>Autoajuda</option>
+                    <option value="historia" <%= user.genero_fav === 'historia' ? 'selected' : '' %>>História</option>
+                    <option value="drama" <%= user.genero_fav === 'drama' ? 'selected' : '' %>>Drama</option>
+                    <option value="poesia" <%= user.genero_fav === 'poesia' ? 'selected' : '' %>>Poesia</option>
+                    <option value="classicos" <%= user.genero_fav === 'classicos' ? 'selected' : '' %>>Clássicos</option>
+                    <option value="romance-policial" <%= user.genero_fav === 'romance-policial' ? 'selected' : '' %>>Romance Policial</option>
+                    <option value="juvenil" <%= user.genero_fav === 'juvenil' ? 'selected' : '' %>>Juvenil</option>
+                    <option value="literatura-infantojuvenil" <%= user.genero_fav === 'literatura-infantojuvenil' ? 'selected' : '' %>>Literatura Infantojuvenil</option>
+                </select>
+            </div>
+            <button type="submit" id="alterar" name="alterar" class="btn btn-primary">Alterar Cadastro</button>
+        </form>
+        <p><a href="/dashboard" class="btn btn-secondary">Voltar</a></p>
+    </div>
+
+    <footer class="bg-color-primary py-5">
+    </footer>
+    <script src="/js/scriptEdit.js"></script>
+</body>
+</html>
